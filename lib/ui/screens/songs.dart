@@ -1,5 +1,5 @@
 import 'package:app/app_state.dart';
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/enums.dart';
 import 'package:app/extensions/extensions.dart';
 import 'package:app/main.dart';
@@ -241,10 +241,10 @@ class _SongListHeaderState extends State<SongListHeader> {
     return BaseSongListHeader.SongListHeader(
       songs: [],
       playIcon: _fetchingSongsToPlayAll
-          ? SpinKitThreeBounce(color: AppColors.white.withOpacity(.5), size: 16)
+          ? SpinKitThreeBounce(color: preferences.themeColors.white.withOpacity(.5), size: 16)
           : null,
       shuffleIcon: _fetchingSongsToShuffle
-          ? SpinKitThreeBounce(color: AppColors.white.withOpacity(.5), size: 16)
+          ? SpinKitThreeBounce(color: preferences.themeColors.white.withOpacity(.5), size: 16)
           : null,
       onSearchExpanded: widget.onSearchExpanded,
       onSearchCollapsed: widget.onSearchCollapsed,

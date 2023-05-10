@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 
 class GradientDecoratedContainer extends StatelessWidget {
   final Widget child;
@@ -10,15 +11,27 @@ class GradientDecoratedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final backgroundImage = preferences.themeColors.backgroundImage;
+    final backgroundColor = preferences.themeColors.backgroundColor;
+
     return Container(
       child: child,
       padding: padding,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/background.webp'),
-          fit: BoxFit.cover,
-          alignment: Alignment.bottomLeft,
-        ),
+      decoration: BoxDecoration(
+        image: backgroundImage != null
+            ? DecorationImage(
+                image: preferences.themeColors.backgroundImage!,
+                fit: BoxFit.cover,
+                alignment: Alignment.bottomCenter,
+              )
+            : null,
+        gradient: backgroundImage == null && backgroundColor != null
+            ? LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [backgroundColor, backgroundColor],
+              )
+            : null,
       ),
     );
   }

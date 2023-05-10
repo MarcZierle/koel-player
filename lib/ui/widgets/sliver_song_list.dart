@@ -1,4 +1,4 @@
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/ui/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,7 +29,7 @@ class SliverSongList extends StatelessWidget {
                   onDismissed: (_) => onDismissed?.call(songs[index]),
                   background: Container(
                     alignment: AlignmentDirectional.centerEnd,
-                    color: AppColors.highlightAccent,
+                    color: preferences.themeColors.highlightAccent,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 28),
                       child: dismissIcon,

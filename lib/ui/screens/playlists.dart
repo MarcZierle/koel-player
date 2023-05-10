@@ -1,4 +1,4 @@
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/providers/providers.dart';
 import 'package:app/router.dart';
@@ -77,7 +77,7 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
                             onDismissed: (_) => provider.remove(playlist),
                             background: Container(
                               alignment: AlignmentDirectional.centerEnd,
-                              color: AppColors.red,
+                              color: preferences.themeColors.red,
                               child: const Padding(
                                 padding: EdgeInsets.only(right: 28),
                                 child: Icon(CupertinoIcons.delete),
@@ -101,7 +101,7 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
               );
             },
             child: CupertinoSliverNavigationBar(
-              backgroundColor: AppColors.screenHeaderBackground,
+              backgroundColor: preferences.themeColors.screenHeaderBackground,
               largeTitle: const LargeTitle(text: 'Playlists'),
               trailing: IconButton(
                 onPressed: () => widget.router.showCreatePlaylistSheet(context),

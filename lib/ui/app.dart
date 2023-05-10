@@ -1,4 +1,6 @@
 import 'package:app/constants/constants.dart';
+import 'package:provider/provider.dart';
+import 'package:app/providers/providers.dart';
 import 'package:app/router.dart';
 import 'package:app/ui/screens/screens.dart';
 import 'package:app/ui/theme_data.dart';
@@ -14,16 +16,17 @@ class App extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return Material(
-      color: Colors.transparent,
-      child: GradientDecoratedContainer(
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: AppStrings.appName,
-          theme: themeData(context),
-          initialRoute: InitialScreen.routeName,
-          routes: AppRouter.routes,
-        ),
-      ),
-    );
+        color: Colors.transparent,
+        child: Consumer<ThemeProvider>( // rebuild when theme changes
+          builder: (context, theme, _) => GradientDecoratedContainer(
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: AppStrings.appName,
+              theme: themeData(context),
+              initialRoute: InitialScreen.routeName,
+              routes: AppRouter.routes,
+            ),
+          ),
+        ));
   }
 }

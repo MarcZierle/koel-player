@@ -1,4 +1,4 @@
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/mixins/stream_subscriber.dart';
 import 'package:app/models/models.dart';
 import 'package:app/providers/providers.dart';
@@ -73,9 +73,9 @@ class _SongCacheIconState extends State<SongCacheIcon> with StreamSubscriber {
   @override
   Widget build(BuildContext context) {
     if (_downloading)
-      return const Padding(
+      return Padding(
         padding: EdgeInsets.only(right: 4.0),
-        child: CupertinoActivityIndicator(radius: 9, color: AppColors.white),
+        child: CupertinoActivityIndicator(radius: 9, color: preferences.themeColors.white),
       );
 
     final downloaded = this._downloaded;

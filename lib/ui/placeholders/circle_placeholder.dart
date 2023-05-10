@@ -1,4 +1,4 @@
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:flutter/cupertino.dart';
 
 class CirclePlaceholder extends StatelessWidget {
@@ -14,8 +14,8 @@ class CirclePlaceholder extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      decoration: const BoxDecoration(
-        color: AppColors.white,
+      decoration: BoxDecoration(
+        color: preferences.themeColors.white,
         shape: BoxShape.circle,
       ),
     );

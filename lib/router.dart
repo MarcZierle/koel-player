@@ -27,6 +27,7 @@ class AppRouter {
     DataLoadingScreen.routeName: (_) => const DataLoadingScreen(),
     DownloadedScreen.routeName: (_) => DownloadedScreen(),
     RecentlyPlayedScreen.routeName: (_) => const RecentlyPlayedScreen(),
+    SettingsScreen.routeName: (_) => const SettingsScreen(),
   };
 
   Future<void> gotoAlbumDetailsScreen(
@@ -88,6 +89,21 @@ class AppRouter {
       context: context,
       isScrollControlled: true,
       builder: (_) => SongActionSheet(song: song),
+    );
+  }
+
+  Future<void> showThemePickerSheet(BuildContext context) async {
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useRootNavigator: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return Container(
+          height: MediaQuery.of(context).size.height,
+          child: const ThemePickerSheet(),
+        );
+      },
     );
   }
 }

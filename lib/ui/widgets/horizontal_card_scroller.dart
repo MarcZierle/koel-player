@@ -1,4 +1,5 @@
 import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/enums.dart';
 import 'package:app/ui/widgets/widgets.dart';
 import 'package:figma_squircle/figma_squircle.dart';
@@ -71,7 +72,7 @@ class PlaceholderCard extends StatelessWidget {
           onPressed: onPressed,
           child: Icon(icon, size: 32),
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.highlight,
+            backgroundColor: preferences.themeColors.highlight,
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:app/app_state.dart';
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/enums.dart';
 import 'package:app/mixins/stream_subscriber.dart';
 import 'package:app/ui/screens/screens.dart';
@@ -64,7 +64,7 @@ class _NoConnectionScreenState extends State<NoConnectionScreen>
                 Icon(
                   CupertinoIcons.wifi_slash,
                   size: 128,
-                  color: AppColors.white.withOpacity(.4),
+                  color: preferences.themeColors.white.withOpacity(.4),
                 ),
                 Wrap(
                   direction: Axis.vertical,

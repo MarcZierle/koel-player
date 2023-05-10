@@ -1,4 +1,4 @@
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/enums.dart';
 import 'package:app/values/values.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,7 +35,7 @@ class SortButton extends StatelessWidget {
 
   PopupMenuItem<String> buildMenuItem(String field, String label) {
     final active = field == currentField;
-    final style = active ? const TextStyle(color: AppColors.white) : null;
+    final style = active ? TextStyle(color: preferences.themeColors.white) : null;
 
     return PopupMenuItem<String>(
       value: field,

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/providers/providers.dart';
 import 'package:app/ui/placeholders/placeholders.dart';
@@ -107,9 +107,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
         return Scaffold(
           body: CupertinoTheme(
-            data: const CupertinoThemeData(
-              primaryColor: AppColors.white,
-              barBackgroundColor: AppColors.screenHeaderBackground,
+            data: CupertinoThemeData(
+              primaryColor: preferences.themeColors.white,
+              barBackgroundColor: preferences.themeColors.screenHeaderBackground,
             ),
             child: PullToRefresh(
               onRefresh: () => context.read<OverviewProvider>().refresh(),
@@ -131,7 +131,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                                 icon: const Icon(CupertinoIcons.time, size: 23),
                               ),
-                              const ProfileAvatar(),
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.of(
+                                    context,
+                                    rootNavigator: true,
+                                  ).pushNamed(SettingsScreen.routeName);
+                                },
+                                padding: EdgeInsets.zero,
+                                constraints: const BoxConstraints(),
+                                icon: const Icon(
+                                    CupertinoIcons.person_alt_circle,
+                                    size: 24),
+                              ),
                             ],
                           ),
                         ),
@@ -193,10 +205,10 @@ class EmptyHomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               CupertinoIcons.music_note,
               size: 100,
-              color: AppColors.white,
+              color: preferences.themeColors.white,
             ),
             const SizedBox(height: 16),
             const Text(

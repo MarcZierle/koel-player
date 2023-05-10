@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:app/app_state.dart';
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/enums.dart';
 import 'package:app/main.dart';
 import 'package:app/mixins/stream_subscriber.dart';
@@ -201,14 +201,14 @@ class _ConnectivityInfoBoxState extends State<ConnectivityInfoBox>
                       InitialScreen.routeName,
                     );
                   },
-                  icon: const Icon(
+                  icon: Icon(
                     CupertinoIcons.wifi,
-                    color: AppColors.white,
+                    color: preferences.themeColors.white,
                     size: 20,
                   ),
-                  label: const Text(
+                  label: Text(
                     'Connection restored! Tap to refresh.',
-                    style: TextStyle(color: AppColors.white, fontSize: 14.0),
+                    style: TextStyle(color: preferences.themeColors.white, fontSize: 14.0),
                   ),
                 ),
               ),

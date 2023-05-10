@@ -1,4 +1,4 @@
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/providers/providers.dart';
 import 'package:app/router.dart';
@@ -65,7 +65,7 @@ class AddToPlaylistScreen extends StatelessWidget {
             );
           },
           child: CupertinoSliverNavigationBar(
-            backgroundColor: AppColors.screenHeaderBackground,
+            backgroundColor: preferences.themeColors.screenHeaderBackground,
             largeTitle: const LargeTitle(text: 'Add to a Playlist'),
             trailing: IconButton(
               onPressed: () => router.showCreatePlaylistSheet(context),

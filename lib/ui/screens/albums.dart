@@ -1,5 +1,5 @@
 import 'package:app/app_state.dart';
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/providers/providers.dart';
 import 'package:app/router.dart';
@@ -101,8 +101,8 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
                   child: CustomScrollView(
                     controller: _scrollController,
                     slivers: <Widget>[
-                      const CupertinoSliverNavigationBar(
-                        backgroundColor: AppColors.screenHeaderBackground,
+                      CupertinoSliverNavigationBar(
+                        backgroundColor: preferences.themeColors.screenHeaderBackground,
                         largeTitle: LargeTitle(text: 'Albums'),
                       ),
                       SliverList(

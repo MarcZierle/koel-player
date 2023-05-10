@@ -1,5 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:app/constants/colors.dart';
 
 final GetStorage storage = GetStorage('Preferences');
 
@@ -49,3 +50,21 @@ AudioServiceRepeatMode get repeatMode {
 set volume(double volume) => _set('volume', volume);
 
 double get volume => _get<double>('volume') ?? 0.7;
+
+set theme(String theme) {
+  if (colorThemes.containsKey(theme)) {
+    _set('theme', theme);
+  } else {
+    _set('theme', 'default');
+  }
+}
+
+String get theme => _get<String>('theme') ?? 'default';
+
+AppColors get themeColors {
+  if (colorThemes.containsKey(theme)) {
+    return colorThemes[theme]!;
+  } else {
+    return colorThemes['default']!;
+  }
+}

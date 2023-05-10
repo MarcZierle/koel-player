@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/ui/screens/info_sheet/album_info_pane.dart';
 import 'package:app/ui/screens/info_sheet/artist_info_pane.dart';
@@ -51,8 +52,8 @@ class _InfoSheetState extends State<InfoSheet> {
               automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
               elevation: 0,
-              bottom: const TabBar(
-                indicatorColor: AppColors.highlight,
+              bottom: TabBar(
+                indicatorColor: preferences.themeColors.highlight,
                 tabs: [
                   Tab(text: 'Lyrics'),
                   Tab(text: 'Artist'),

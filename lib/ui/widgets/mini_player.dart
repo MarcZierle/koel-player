@@ -1,4 +1,4 @@
-import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/enums.dart';
 import 'package:app/main.dart';
 import 'package:app/mixins/stream_subscriber.dart';
@@ -65,11 +65,11 @@ class _MiniPlayerState extends State<MiniPlayer> with StreamSubscriber {
     if ((state.processingState == AudioProcessingState.buffering ||
             state.processingState == AudioProcessingState.loading) &&
         state.playing) {
-      statusIndicator = SpinKitThreeBounce(color: AppColors.white, size: 16);
+      statusIndicator = SpinKitThreeBounce(color: preferences.themeColors.white, size: 16);
       isLoading = true;
     } else {
       // statusIndicator = SizedBox.shrink();
-      statusIndicator = SpinKitThreeBounce(color: AppColors.white, size: 16);
+      statusIndicator = SpinKitThreeBounce(color: preferences.themeColors.white, size: 16);
       isLoading = false;
     }
 
@@ -82,11 +82,11 @@ class _MiniPlayerState extends State<MiniPlayer> with StreamSubscriber {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: AppColors.white.withOpacity(0.1),
+                  color: preferences.themeColors.white.withOpacity(0.1),
                   width: .5,
                 ),
                 bottom: BorderSide(
-                  color: AppColors.white.withOpacity(0.1),
+                  color: preferences.themeColors.white.withOpacity(0.1),
                   width: .5,
                 ),
               ),

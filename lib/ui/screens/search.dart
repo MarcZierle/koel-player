@@ -1,4 +1,5 @@
 import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/providers/providers.dart';
 import 'package:app/ui/widgets/widgets.dart';
@@ -103,7 +104,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
                 child: Text(
                   'Cancel',
-                  style: TextStyle(color: AppColors.white.withOpacity(.7)),
+                  style: TextStyle(color: preferences.themeColors.white.withOpacity(.7)),
                 ),
               ),
             ),

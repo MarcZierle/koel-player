@@ -72,6 +72,9 @@ List<SingleChildWidget> _providers = [
       searchProvider: context.read<SearchProvider>(),
     ),
   ),
+  ChangeNotifierProvider(
+    create: (context) => ThemeProvider(),
+  )
 ];
 
 Future<void> main() async {

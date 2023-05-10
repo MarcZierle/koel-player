@@ -1,4 +1,5 @@
 import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/providers/providers.dart';
 import 'package:app/ui/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,8 +35,8 @@ class _AddPlaylistScreenState extends State<CreatePlaylistSheet> {
     setState(() => _enabled = value.trim().isNotEmpty);
   }
 
-  final inputBorder = const UnderlineInputBorder(
-    borderSide: BorderSide(color: AppColors.highlight),
+  final inputBorder = UnderlineInputBorder(
+    borderSide: BorderSide(color: preferences.themeColors.highlight),
   );
 
   final spinner = const Center(
@@ -103,7 +104,7 @@ class _AddPlaylistScreenState extends State<CreatePlaylistSheet> {
                 onFieldSubmitted: (_) async => await submit(),
                 onChanged: _onFieldValueChanged,
                 style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
-                cursorColor: AppColors.highlight,
+                cursorColor: preferences.themeColors.highlight,
                 textAlign: TextAlign.center,
                 autofocus: true,
                 decoration: InputDecoration(

@@ -1,4 +1,5 @@
 import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/models/models.dart';
 import 'package:app/ui/widgets/widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -11,7 +12,7 @@ class AppBar extends StatelessWidget {
   final Widget? backgroundImage;
   final List<Widget> actions;
 
-  const AppBar({
+  AppBar({
     Key? key,
     required this.headingText,
     required this.coverImage,
@@ -19,17 +20,17 @@ class AppBar extends StatelessWidget {
     this.actions = const [],
   }) : super(key: key);
 
-  final Widget _gradientEffect = const SizedBox(
+  final Widget _gradientEffect = SizedBox(
     width: double.infinity,
     height: double.infinity,
-    child: const DecoratedBox(
-      decoration: const BoxDecoration(
-        gradient: const LinearGradient(
+    child: DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
             Colors.transparent,
-            AppColors.screenHeaderBackground,
+            preferences.themeColors.screenHeaderBackground,
           ],
         ),
       ),
@@ -44,7 +45,7 @@ class AppBar extends StatelessWidget {
       pinned: true,
       expandedHeight: 290,
       actions: actions,
-      backgroundColor: AppColors.screenHeaderBackground,
+      backgroundColor: preferences.themeColors.screenHeaderBackground,
       shadowColor: Colors.transparent,
       flexibleSpace: FrostedGlassBackground(
         child: FlexibleSpaceBar(
@@ -152,7 +153,7 @@ class CoverImage extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               colorFilter: ColorFilter.mode(
-                AppColors.screenHeaderBackground.withOpacity(overlayOpacity),
+                preferences.themeColors.screenHeaderBackground.withOpacity(overlayOpacity),
                 BlendMode.srcOver,
               ),
               image: imageUrl == null
@@ -161,9 +162,9 @@ class CoverImage extends StatelessWidget {
               fit: BoxFit.cover,
               alignment: Alignment.center,
             ),
-            boxShadow: const <BoxShadow>[
-              const BoxShadow(
-                color: AppColors.screenHeaderBackground,
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: preferences.themeColors.screenHeaderBackground,
                 blurRadius: 10.0,
                 offset: const Offset(0, 6),
               ),

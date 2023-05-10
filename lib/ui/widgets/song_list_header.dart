@@ -1,4 +1,5 @@
 import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/main.dart';
 import 'package:app/models/models.dart';
 import 'package:flutter/cupertino.dart';
@@ -89,7 +90,7 @@ class _SongListHeaderState extends State<SongListHeader> {
             padding: const EdgeInsets.all(16),
             elevation: 0,
             shape: CircleBorder(),
-            backgroundColor: AppColors.highlight,
+            backgroundColor: preferences.themeColors.highlight,
           ),
         ),
       ],
@@ -116,7 +117,7 @@ class _SongListHeaderState extends State<SongListHeader> {
           },
           child: Text(
             'Cancel',
-            style: TextStyle(color: AppColors.white.withOpacity(.7)),
+            style: TextStyle(color: preferences.themeColors.white.withOpacity(.7)),
           ),
         ),
       ],

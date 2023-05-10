@@ -22,3 +22,5 @@ export 'search.dart';
 export 'song_action_sheet.dart';
 export 'songs.dart';
 export 'info_sheet/info_sheet.dart';
+export 'settings.dart';
+export 'theme_picker_sheet.dart';

@@ -1,4 +1,5 @@
 import 'package:app/constants/constants.dart';
+import 'package:app/utils/preferences.dart' as preferences;
 import 'package:app/providers/providers.dart';
 import 'package:app/ui/screens/screens.dart';
 import 'package:app/ui/widgets/widgets.dart';
@@ -71,8 +72,8 @@ class LibraryScreen extends StatelessWidget {
         child: GradientDecoratedContainer(
           child: CustomScrollView(
             slivers: <Widget>[
-              const CupertinoSliverNavigationBar(
-                backgroundColor: AppColors.screenHeaderBackground,
+              CupertinoSliverNavigationBar(
+                backgroundColor: preferences.themeColors.screenHeaderBackground,
                 largeTitle: const LargeTitle(text: 'Library'),
               ),
               SliverPadding(
